@@ -1,0 +1,37 @@
+import math
+import random
+
+def calculate_z(m, n):
+
+  z = (math.sqrt(2) - math.sqrt(3*n)) / (2*m)
+  return z
+
+def guess_number():
+
+  number = random.randint(1, 100)
+  guess = 0
+  attempts = 0
+
+  while guess != number:
+    guess = int(input("Вгадайте число від 1 до 100: "))
+    attempts += 1
+
+    if guess < number:
+      print("Моє число більше.")
+    elif guess > number:
+      print("Моє число менше.")
+    else:
+      print("Ви вгадали! Кількість спроб:", attempts)
+
+# Вибір завдання
+choice = input("Обчислити z (1) або грати вгадай число (2)? ")
+
+if choice == '1':
+  m = float(input("Введіть значення m: "))
+  n = float(input("Введіть значення n: "))
+  result = calculate_z(m, n)
+  print("Значення z:", result)
+elif choice == '2':
+  guess_number()
+else:
+  print("Некоректний вибір.")
